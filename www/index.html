@@ -160,7 +160,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
-        
+
     }
 
     // Alarmの処理
@@ -182,11 +182,13 @@
     function btnAClick(e){
         active = true;
         startTime = new Date();
+        $("#btnA").prop("disabled", true);
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active = false;
+        $("#btnB").prop("disabled", true);
     }
 
     // ButtonCがクリックされた時の処理
