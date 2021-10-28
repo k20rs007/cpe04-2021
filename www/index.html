@@ -227,10 +227,11 @@
           $("#remain").html("残り時間： " + rest +"(" + m + ":" + s +")");
           analog(rest);
 
-          //if(rest <= 0){
-          //  active = false;
-          //  alarm();
-          //} 
+          if(rest <= 0){
+            active = false;
+            alarm();
+          } 
+          
           } else {
           counttime2 = time;
         }
