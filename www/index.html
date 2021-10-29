@@ -38,6 +38,18 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+
+        $('#btnD').click(function(e) {
+            btnDClick(e);
+        });
+
+        $('#btnE').click(function(e) {
+            btnEClick(e);
+        });
+
+        $('#btnF').click(function(e) {
+            btnFClick(e);
+        });
         init();
     });
     
@@ -141,7 +153,6 @@
         var m = parseInt((rest-h*3600)/60);
         var s = parseInt(rest-h*3600-m*60);
         clock(h,m,s,true);
-
     }
 
 
@@ -154,8 +165,8 @@
     var startTime = 0;
     var period = 0;
     var count = 0;
-    var counttime = 0;
-    var counttime2 = 0;
+    var countTime = 0;
+    var countTime2 = 0;
     var time = 0;
     var m = 0;
     var s = 0;
@@ -166,6 +177,9 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnD').prop('disabled', false);
+        $('#btnE').prop('disabled', false);
+        $('#btnF').prop('disabled', false);
         btnCClick(null);
     }
 
@@ -199,7 +213,7 @@
         if(count == 0) {
           count++;
         }
-        counttime = new Date();
+        countTime = new Date();
     }
 
     // ButtonCがクリックされた時の処理
@@ -210,7 +224,24 @@
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： "+ period);
     }
+
+    function btnDClick(e) {
+      period = 30;
+      $("#time").html("経過時間： 0");
+      $("#remain").html("残り時間： "+ period);
+    }
     
+    function btnEClick(e) {
+      period = 180;
+      $("#time").html("経過時間： 0");
+      $("#remain").html("残り時間： "+ period);
+    }
+
+    function btnFClick(e) {
+      period = 300;
+      $("#time").html("経過時間： 0");
+      $("#remain").html("残り時間： "+ period);
+    }
  
     // 繰り返し実行する処理
     function timer(){  
@@ -218,7 +249,7 @@
           if(count == 0) {
             time = parseInt( (new Date() - startTime)/1000);
           } else {
-            time = parseInt( (new Date() - startTime)/1000) + counttime2;
+            time = parseInt( (new Date() - startTime)/1000) + countTime2;
           }          
           var rest = period - time;
           m = parseInt(rest/60);
@@ -233,7 +264,7 @@
           } 
           
           } else {
-          counttime2 = time;
+          countTime2 = time;
         }
       }
 
@@ -249,7 +280,10 @@
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
+    <button id="btnC">Set</button>
+    <button id="btnD">30sec</button>
+    <button id="btnE">3min</button>  
+    <button id="btnF">5min</button>
     <input type="number" id="minute" value=0 min="0">
     <input type="number" id="second" value=15 max="59" min="0">
 </body>
